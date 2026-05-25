@@ -15,3 +15,4 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name
 Route::put('/products/{product}/update', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}/destroy', [ProductController::class, 'destroy'])->name('products.delete');
 Route::patch('/products/{product}/status', [ProductController::class, 'updateStatus'])->name('products.updateStatus');
+Route::get('/products/{product}/archive', [ProductController::class, 'archive'])->name('products.archive');

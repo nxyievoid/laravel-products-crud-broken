@@ -98,4 +98,16 @@ class ProductController extends Controller
 
         return redirect()->route('products.show', $product)->with('success', 'Product status was changed successfully.');
     }
+
+        public function archive(Request $request, Product $product)
+    {
+        // $validated = $request->validate([
+        //     'status' => 'required|in:active,inactive,out_of_stock',
+        // ]);
+        $validated = $request->validatewhereNull('archived_at')->get();
+        // @if ( $product = archived );
+        // $product->archive(['status' => $validated['status']]);
+
+        return redirect()->route('products.index')->with('success', 'Product was archived successfully.');
+    }
 }

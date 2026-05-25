@@ -30,9 +30,14 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-delete" onclick="return confirm('Delete this product?')">Delete</button>
                     </form>
+                    <form action="{{ route('products.archive', $product->id) }}" method="get" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-archive" onclick="return confirm('archive this product?')">Archive</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="/products/filter=?"> archived products</a>
 </x-layout>
