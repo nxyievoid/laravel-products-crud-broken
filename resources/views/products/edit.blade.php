@@ -5,7 +5,7 @@
     <a href="{{ route('products.index') }}" class="btn btn-back">Back to List</a>
     <br><br>
 
-    <form action="{{ route('products.update') }}" method="POST" style="max-width: 500px;">
+    <form action="{{ route('products.update', $product->id ) }}" method="PUT" style="max-width: 500px;">
         @csrf
         @method('PUT')
 

@@ -31,14 +31,14 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'description' => 'nullable',
+            'description' => 'required',
             'price' => 'required|numeric',
             'category' => 'required|in:electronics,clothing,home,beauty,other',
         ]);
 
         $product = Product::create($validated);
 
-        return redirect()->route('products.create', $product);
+        return redirect()->route('products.index', $product);
     }
 
     /**
@@ -64,7 +64,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'description' => 'nullable',
+            'description' => 'required',
             'price' => 'required|numeric',
             'category' => 'required|in:electronics,clothing,home,beauty,other',
         ]);
