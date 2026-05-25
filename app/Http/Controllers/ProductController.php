@@ -60,7 +60,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
             'name' => 'required',
@@ -68,8 +68,9 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'category' => 'required|in:electronics,clothing,home,beauty,other',
         ]);
-
-        $product->update($validated);
+        // $product = Product::update($validated);
+        return $validated;
+        // $product->update($validated);
 
         return redirect()->route('products.show', $product)->with('success', 'Product updated successfully.');
     }
