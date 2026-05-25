@@ -95,6 +95,6 @@ class ProductController extends Controller
 
         $product->update(['status' => $validated['status']]);
 
-        return $product;
+        return redirect()->route('products.show', $product)->with('success', 'Product status was changed successfully.');
     }
 }
